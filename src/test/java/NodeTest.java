@@ -85,11 +85,30 @@ public class NodeTest {
         myLinkedList.append(myThirdNode);
         myLinkedList.printMyNodes();
 
-        myLinkedList.pop();
+        myLinkedList.popFront();
         myLinkedList.printMyNodes();
 
         boolean result = myLinkedList.head.equals(mySecondNode) &&
                 myLinkedList.tail.equals(myThirdNode);
+        Assertions.assertTrue(result);
+    }
+    @Test
+    public void returnTrue_When_deleteLastElement_ByUsing_pop() {
+        Node<Integer> myFirstNode = new Node<>(56);
+        Node<Integer> mySecondNode = new Node<>(30);
+        Node<Integer> myThirdNode = new Node<>(70);
+
+        LinkedList myLinkedList = new LinkedList();
+        myLinkedList.append(myFirstNode);
+        myLinkedList.append(mySecondNode);
+        myLinkedList.append(myThirdNode);
+        myLinkedList.printMyNodes();
+
+        myLinkedList.popLast();
+        myLinkedList.printMyNodes();
+
+        boolean result = myLinkedList.head.equals(myFirstNode) &&
+                myLinkedList.tail.equals(mySecondNode);
         Assertions.assertTrue(result);
     }
 }
