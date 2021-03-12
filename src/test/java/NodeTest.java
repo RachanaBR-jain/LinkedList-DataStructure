@@ -6,18 +6,26 @@ public class NodeTest {
     Node<Integer> node;
     @Test
     public void given3Number_WhenLinkedShould_PaasLinkedListTest() {
-        Node<Integer> myFirstNode = new Node<>(56);
+        Node<Integer> myFirstNode = new Node<>(70);
         Node<Integer> mySecondNode = new Node<>(30);
-        Node<Integer> myThirdNode = new Node<>(70);
-        myFirstNode.setNext(mySecondNode);
-        mySecondNode.setNext(myThirdNode);
-        boolean result = myFirstNode.getNext().equals(mySecondNode) &&
-                mySecondNode.getNext().equals(myThirdNode);
+        Node<Integer> myThirdNode = new Node<>(56);
+        LinkedList myLinkedList = new LinkedList();
+        myLinkedList.add(myFirstNode);
+        myLinkedList.add(mySecondNode);
+        myLinkedList.add(myThirdNode);
+
+        System.out.println("Before");
         node.printKeys(myFirstNode.getKey());
         node.printKeys(mySecondNode.getKey());
         node.printKeys(myThirdNode.getKey());
+        boolean result = myLinkedList.head.equals(myThirdNode) &&
+                myLinkedList.head.getNext().equals(mySecondNode) &&
+                myLinkedList.tail.equals(myFirstNode);
+
         Assertions.assertTrue(result);
     }
 
-
 }
+
+
+
