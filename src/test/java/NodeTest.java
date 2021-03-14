@@ -12,9 +12,9 @@ public class NodeTest {
         Node<Integer> myThirdNode = new Node<>(56);
         LinkedList myLinkedList = new LinkedList();
 
-        myLinkedList.add(myFirstNode);
-        myLinkedList.add(mySecondNode);
-        myLinkedList.add(myThirdNode);
+        myLinkedList.insertAtFirst(myFirstNode);
+        myLinkedList.insertAtFirst(mySecondNode);
+        myLinkedList.insertAtFirst(myThirdNode);
         System.out.println("Before");
         node.printKeys(myFirstNode.getKey());
         node.printKeys(mySecondNode.getKey());
@@ -35,9 +35,9 @@ public class NodeTest {
         Node<Integer> myThirdNode = new Node<>(70);
 
         LinkedList myLinkedList = new LinkedList();
-        myLinkedList.append(myFirstNode);
-        myLinkedList.append(mySecondNode);
-        myLinkedList.append(myThirdNode);
+        myLinkedList.insertAtLast(myFirstNode);
+        myLinkedList.insertAtLast(mySecondNode);
+        myLinkedList.insertAtLast(myThirdNode);
         System.out.println("Before");
         node.printKeys(myFirstNode.getKey());
         node.printKeys(mySecondNode.getKey());
@@ -57,12 +57,10 @@ public class NodeTest {
         Node<Integer> myThirdNode = new Node<>(70);
 
         LinkedList myLinkedList = new LinkedList();
-        myLinkedList.add(myFirstNode);
-        myLinkedList.append(myThirdNode);
+        myLinkedList.insertAtLast(myFirstNode);
+        myLinkedList.insertAtLast(myThirdNode);
         System.out.println("Before ");
         myLinkedList.printMyNodes();
-
-
 
         myLinkedList.insert(mySecondNode, myThirdNode);
         System.out.println("After");
@@ -80,12 +78,12 @@ public class NodeTest {
         Node<Integer> myThirdNode = new Node<>(70);
 
         LinkedList myLinkedList = new LinkedList();
-        myLinkedList.append(myFirstNode);
-        myLinkedList.append(mySecondNode);
-        myLinkedList.append(myThirdNode);
+        myLinkedList.insertAtLast(myFirstNode);
+        myLinkedList.insertAtLast(mySecondNode);
+        myLinkedList.insertAtLast(myThirdNode);
         myLinkedList.printMyNodes();
 
-        myLinkedList.popFront();
+        myLinkedList.deleteFirst();
         myLinkedList.printMyNodes();
 
         boolean result = myLinkedList.head.equals(mySecondNode) &&
@@ -99,9 +97,9 @@ public class NodeTest {
         Node<Integer> myThirdNode = new Node<>(70);
 
         LinkedList myLinkedList = new LinkedList();
-        myLinkedList.append(myFirstNode);
-        myLinkedList.append(mySecondNode);
-        myLinkedList.append(myThirdNode);
+        myLinkedList.insertAtLast(myFirstNode);
+        myLinkedList.insertAtLast(mySecondNode);
+        myLinkedList.insertAtLast(myThirdNode);
         myLinkedList.printMyNodes();
 
         myLinkedList.popLast();
@@ -111,6 +109,28 @@ public class NodeTest {
                 myLinkedList.tail.equals(mySecondNode);
         Assertions.assertTrue(result);
     }
+
+
+    @Test
+    public void given3Number_WhenSearched_ShouldPassTheLinkedListTest() {
+        Node<Integer> myFirstNode = new Node<>(56);
+        Node<Integer> mySecondNode = new Node<>(30);
+        Node<Integer> myThirdNode = new Node<>(70);
+
+        LinkedList myLinkedList = new LinkedList();
+        myLinkedList.insertAtFirst(myThirdNode);
+        myLinkedList.insertAtFirst(mySecondNode);
+        myLinkedList.insertAtFirst(myFirstNode);
+
+        myLinkedList.search(mySecondNode);
+        myLinkedList.printMyNodes();
+
+        boolean result = myLinkedList.head.equals(myFirstNode) &&
+                myLinkedList.head.getNext().equals(mySecondNode) &&
+                myLinkedList.tail.equals(myThirdNode);
+        Assertions.assertTrue(result);
+    }
+
 }
 
 

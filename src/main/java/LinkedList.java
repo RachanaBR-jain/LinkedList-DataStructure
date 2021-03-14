@@ -8,7 +8,7 @@ public class LinkedList {
         this.tail = null;
     }
 
-    public void add(INode newNode) {
+    public void insertAtFirst(INode newNode) {
         if (this.tail == null) {
             this.tail = newNode;
         }
@@ -21,7 +21,7 @@ public class LinkedList {
         }
     }
 
-    public void append(INode newNode) {
+    public void insertAtLast(INode newNode) {
         if (this.head == null) {
             this.head = newNode;
         }
@@ -51,7 +51,7 @@ public class LinkedList {
         myNode.setNext(newNode);
     }
 
-    public INode popFront() {
+    public INode deleteFirst() {
         INode tempNode = this.head;
         this.head = head.getNext();
         return tempNode;
@@ -65,6 +65,16 @@ public class LinkedList {
         }
         tail = tempNode;
         tempNode = null;
-        return tempNode ;
+        return tempNode;
     }
+
+    public void search(INode myNode) {
+        INode tempNode = head;
+        while (tempNode.getNext() != myNode) {
+            tempNode = tempNode.getNext();
+        }
+        tempNode = tempNode.getNext();
+        System.out.println("Searched Element is: " + tempNode.getKey());
+    }
+
 }
