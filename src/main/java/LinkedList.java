@@ -76,5 +76,4 @@ public class LinkedList {
         tempNode = tempNode.getNext();
         System.out.println("Searched Element is: " + tempNode.getKey());
     }
-
 }

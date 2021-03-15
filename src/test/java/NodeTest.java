@@ -155,7 +155,6 @@ public class NodeTest {
                 myLinkedList.tail.equals(myFourthNode);
         Assertions.assertTrue(result);
     }
-
 }
 
 
